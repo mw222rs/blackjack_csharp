@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SimpleView : BaseView, IView
+    class SimpleView : IView
     {        
 
         public void DisplayWelcomeMessage()
@@ -14,8 +14,24 @@ namespace BlackJack.view
             System.Console.WriteLine("Hello Black Jack World");
             System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
-        
+        public Input GetInput()
+        {
+            int input = Console.In.Read();
 
+            switch (input)
+            {
+                case 'p':
+                    return Input.StartNewGame;
+                case 'h':
+                    return Input.Hit;
+                case 's':
+                    return Input.Stand;
+                case 'q':
+                    return Input.Quit;
+                default:
+                    return Input.None;
+            }
+        }
         public void DisplayCard(model.Card a_card)
         {
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());

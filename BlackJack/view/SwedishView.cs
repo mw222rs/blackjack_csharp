@@ -5,15 +5,33 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SwedishView : BaseView, IView 
+    class SwedishView : IView 
     {
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
             System.Console.WriteLine("Hej Black Jack Världen");
             System.Console.WriteLine("----------------------");
-            System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
-        }        
+            System.Console.WriteLine("Skriv 'n' för Nytt spel, 't' för att ta ett nytt kort, 's' för att stanna eller 'a' för att avsluta\n");
+        }
+        public Input GetInput()
+        {
+            int input = Console.In.Read();
+
+            switch (input)
+            {
+                case 'n':
+                    return Input.StartNewGame;
+                case 't':
+                    return Input.Hit;
+                case 's':
+                    return Input.Stand;
+                case 'a':
+                    return Input.Quit;
+                default:
+                    return Input.None;
+            }
+        }
         public void DisplayCard(model.Card a_card)
         {
             if (a_card.GetColor() == model.Card.Color.Hidden)
