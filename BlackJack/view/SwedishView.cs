@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SwedishView : AView, IView 
+    class SwedishView : BaseView, IView 
     {
         public void DisplayWelcomeMessage()
         {
