@@ -1,5 +1,5 @@
 C:\temp\blackjack_csharp\BlackJack\bin\Debug\BlackJack.exe
 C:\temp\blackjack_csharp\BlackJack\bin\Debug\BlackJack.pdb
-C:\temp\blackjack_csharp\BlackJack\obj\Debug\BlackJack.csprojResolveAssemblyReference.cache
 C:\temp\blackjack_csharp\BlackJack\obj\Debug\BlackJack.exe
 C:\temp\blackjack_csharp\BlackJack\obj\Debug\BlackJack.pdb
+C:\temp\blackjack_csharp\BlackJack\obj\Debug\BlackJack.csprojResolveAssemblyReference.cache

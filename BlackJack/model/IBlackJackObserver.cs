@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlackJack.model.rules
+namespace BlackJack.model
 {
-    interface IHitStrategy
+    interface IBlackJackObserver
     {
-        bool DoHit(Player a_dealer);
+        void NewHandDealt();
     }
 }

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controller\PlayGame.cs" />
+    <Compile Include="model\IBlackJackObserver.cs" />
     <Compile Include="model\Card.cs" />
     <Compile Include="model\Dealer.cs" />
     <Compile Include="model\Deck.cs" />
@@ -75,10 +76,14 @@
     <Compile Include="model\Player.cs" />
     <Compile Include="model\rules\AmericanNewGameStrategy.cs" />
     <Compile Include="model\rules\BasicHitStrategy.cs" />
+    <Compile Include="model\rules\EvenPlayerWinStrategy.cs" />
+    <Compile Include="model\rules\EvenDealerWinStrategy.cs" />
     <Compile Include="model\rules\IHitStrategy.cs" />
     <Compile Include="model\rules\InternationalNewGameStrategy.cs" />
     <Compile Include="model\rules\INewGameStrategy.cs" />
+    <Compile Include="model\rules\IWinStrategy.cs" />
     <Compile Include="model\rules\RulesFactory.cs" />
+    <Compile Include="model\rules\Soft17HitStrategy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\BaseView.cs" />

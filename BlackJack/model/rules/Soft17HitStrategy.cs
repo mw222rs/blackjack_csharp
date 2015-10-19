@@ -14,15 +14,15 @@ namespace BlackJack.model.rules
             List<Card> hand = a_dealer.GetHand().ToList();
 
             bool hasAce = hand.Exists(c => c.GetValue() == Card.Value.Ace);
-
-            if (hasAce)
-            {
-                
-            }
             
-
-
-            throw new NotImplementedException();
+            if (hasAce && (a_dealer.CalcScore() - 11 == 6))
+            {
+                return true;
+            }
+            else
+            {
+                return a_dealer.CalcScore() < g_hitLimit;
+            }            
         }
     }
 }

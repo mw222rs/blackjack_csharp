@@ -78,5 +78,10 @@ namespace BlackJack.view
             System.Console.WriteLine("Poäng: {0}", a_score);
             System.Console.WriteLine("");
         }
+
+        public void Wait()
+        {
+            System.Threading.Thread.Sleep(1000);
+        }
     }
 }

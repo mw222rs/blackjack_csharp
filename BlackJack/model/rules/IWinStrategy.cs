@@ -5,8 +5,8 @@ using System.Text;
 
 namespace BlackJack.model.rules
 {
-    interface IHitStrategy
+    interface IWinStrategy
     {
-        bool DoHit(Player a_dealer);
+        bool IsDealerWinner(Dealer a_dealer, Player a_player);
     }
 }

@@ -8,6 +8,7 @@ namespace BlackJack.model
     class Player
     {
         private List<Card> m_hand = new List<Card>();
+        
 
         public void DealCard(Card a_card)
         {
@@ -29,7 +30,7 @@ namespace BlackJack.model
             foreach (Card c in GetHand())
             {
                 c.Show(true);
-            }
+            }           
         }
 
         public int CalcScore()
