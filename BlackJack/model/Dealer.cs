@@ -12,26 +12,18 @@ namespace BlackJack.model
 
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
-        private rules.IWinStrategy m_winRule;
-
-        private List<IBlackJackObserver> m_observers;        
-
-        public void AddSubscriber(IBlackJackObserver a_sub)
-        {
-            m_observers.Add(a_sub);
-        }
+        private rules.IWinStrategy m_winRule;        
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
             m_winRule = a_rulesFactory.GetWinRule();
-            m_observers = new List<IBlackJackObserver>();
         }
 
         public bool NewGame(Player a_player)
         {            
-            if (m_deck == null || IsGameOver())
+            if (m_deck == null || IsGameOver(a_player))
             {
                 m_deck = new Deck();
                 ClearHand();
@@ -43,7 +35,7 @@ namespace BlackJack.model
 
         public bool Hit(Player a_player)
         {
-            if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver())
+            if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver(a_player))
             {
                 GetAndGiveNewCard(a_player, true);
                 return true;
@@ -61,19 +53,15 @@ namespace BlackJack.model
                 {
                     GetAndGiveNewCard(this, true);
                 }
-
                 return true;
             }
-
             return false;
         }
 
         public void GetAndGiveNewCard(Player a_player, bool show)
         {
             Card c = m_deck.GetCard();
-
             c.Show(show);
-
             a_player.DealCard(c);            
         }
 
@@ -87,10 +75,15 @@ namespace BlackJack.model
             return m_winRule.IsDealerWinner(this, a_player);
         }
 
-        public bool IsGameOver()
+        public bool IsGameOver(Player a_player)
         {
             if (m_deck != null && m_hitRule.DoHit(this) != true)
             {
+                return true;
+            }
+            else if (a_player.CalcScore() > g_maxScore)
+            {
+                ShowHand();
                 return true;
             }
             return false;

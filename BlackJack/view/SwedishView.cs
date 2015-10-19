@@ -81,7 +81,7 @@ namespace BlackJack.view
 
         public void Wait()
         {
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(500);
         }
     }
 }

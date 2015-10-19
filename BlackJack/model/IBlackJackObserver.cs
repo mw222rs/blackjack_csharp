@@ -8,5 +8,6 @@ namespace BlackJack.model
     interface IBlackJackObserver
     {
         void NewHandDealt();
+        
     }
 }

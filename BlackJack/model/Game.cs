@@ -8,7 +8,7 @@ namespace BlackJack.model
     class Game
     {
         private model.Player m_player;        
-        private model.Dealer m_dealer;
+        private model.Dealer m_dealer;        
 
         public Game()
         {
@@ -19,11 +19,12 @@ namespace BlackJack.model
         public void AddSubscriber(IBlackJackObserver a_sub)
         {
             m_dealer.AddSubscriber(a_sub);
+            m_player.AddSubscriber(a_sub);
         }        
 
         public bool IsGameOver()
-        {
-            return m_dealer.IsGameOver();
+        {           
+            return m_dealer.IsGameOver(m_player);
         }
 
         public bool IsDealerWinner()

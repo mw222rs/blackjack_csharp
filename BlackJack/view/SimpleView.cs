@@ -47,34 +47,34 @@ namespace BlackJack.view
             DisplayHand("Dealer", a_hand, a_score);
         }
 
-        private void DisplayHand(String a_name, IEnumerable<model.Card> a_hand, int a_score)
-        {                      
-            System.Console.WriteLine("{0} Has: ", a_name);
+        private void DisplayHand(string a_name, IEnumerable<model.Card> a_hand, int a_score)
+        {
+            Console.WriteLine("{0} Has: ", a_name);
             foreach (model.Card c in a_hand)
             {
                 DisplayCard(c);
             }
-            System.Console.WriteLine("Score: {0}", a_score);
-            System.Console.WriteLine("");
+            Console.WriteLine("Score: {0}", a_score);
+            Console.WriteLine("");
         }
 
         public void DisplayGameOver(bool a_dealerIsWinner)
         {
-            System.Console.Write("GameOver: ");
+            Console.Write("GameOver: ");
             if (a_dealerIsWinner)
             {
-                System.Console.WriteLine("Dealer Won!");
+                Console.WriteLine("Dealer Won!");
             }
             else
             {
-                System.Console.WriteLine("You Won!");
+                Console.WriteLine("You Won!");
             }
             
         }
 
         public void Wait()
-        {
-            System.Threading.Thread.Sleep(1000);
+        {            
+            System.Threading.Thread.Sleep(500);
         }
     }
 }
